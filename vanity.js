@@ -2,7 +2,7 @@ const wordsArray = require('./wordsArray')
 const TrieSearch = require('trie-search/src/TrieSearch');
 
 // 7 pqrs 4 ghi 4 ghi 6 mno
-
+console.log(Array.is)
 console.log(Array.isArray(wordsArray.wordsArray), 'print')
 
 //only return 4 letter, and 3 letter possibilities
