@@ -2,8 +2,8 @@ const wordArray = require('./10000-common-word.js')
 
 // console.log(wordArray)
 
-const sum = (a, b) => {
-  return a + b
+const findMeSomeVanityNumbers = () => {
+  return true
 }
 
-module.exports = sum
+module.exports = findMeSomeVanityNumbers

@@ -1,5 +1,12 @@
-const sum = require('./vanity.js');
+const { it } = require('@jest/globals');
+const findMeSomeVanityNumbers = require('./vanity.js');
 
-test('adds 1 + 2 to equal 3', () => {
-  expect(sum(1, 2)).toBe(3);
-});
+describe('findMeSomeVanityNumbers function', () => {
+  it('should give back an array'), () => {
+    expect(Array.isArray(findMeSomeVanityNumbers())).toBeTruthy();
+  }
+
+  it('should give back an array of words from phone number', () => {
+    expect(findMeSomeVanityNumbers()).toContain("shin");
+  });
+})
