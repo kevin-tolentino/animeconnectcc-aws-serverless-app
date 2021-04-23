@@ -1,7 +1,7 @@
 /* eslint no-plusplus: ["error", { "allowForLoopAfterthoughts": true }] */
 
 const TrieSearch = require('trie-search/src/TrieSearch');
-const wordsArray = require('./wordsArray');
+const dictionaryArray = require('./wordsArray');
 
 // TODO: construct number hashmap
 const digitMap = new Map([
@@ -24,17 +24,35 @@ const returnNumberPossibilities = (numberFromCaller) => {
   return targetDigits;
 };
 
-// TODO: Work on this function to return the letter sets you want to search
 const numberToLetterSets = (fourDigitString) => {
-  // start a for loop and start iterating through second index, check if end of array, then start the next index
   const letterSetsArray = [];
   for (let x = 0; x < fourDigitString.length; x++) { // compares the digit to the key on the hashmap
     const digit = fourDigitString[x];
     const letterSet = digitMap.get(digit);
     letterSetsArray.push(letterSet);
   }
-  console.log('function ran', letterSetsArray);
-// return [] of string possibilities
+  console.log(letterSetsArray);
+  return letterSetsArray;
+};
+
+const getCombinations = (arr) => {
+  if (arr.length === 1) {
+    return arr[0];
+  }
+  const ans = [];
+
+  // recur with the rest of the array.
+  const otherCases = getCombinations(arr.slice(1));
+  for (let i = 0; i < otherCases.length; i++) {
+    for (let j = 0; j < arr[0].length; j++) {
+      ans.push(arr[0][j] + otherCases[i]);
+    }
+  }
+  return ans;
+};
+
+const setToStringPossibilities = (letterSetsArray) => {
+  const stringPossibilities = [];
 };
 
 // function to loop through array and call the trie search to retrieve words
@@ -53,7 +71,7 @@ const numberToLetterSets = (fourDigitString) => {
 
 const findMeSomeVanityNumbers = () => {
   const ts = new TrieSearch('word');
-  ts.addAll(wordsArray.wordsArray);
+  ts.addAll(dictionaryArray.wordsArray);
   const result = ts.get('pig', null, 1);
   console.log(result);
   return true;
@@ -63,9 +81,6 @@ const findMeSomeVanityNumbers = () => {
 
 // returnNumberPossibilities()
 
-numberToLetterSets('7446');
-
-console.log(digitMap);
-console.log(typeof (digitMap.get(2)));
+numberToLetterSets('7546');
 
 module.exports = findMeSomeVanityNumbers;
