@@ -9,3 +9,5 @@ jspm_packages
 .idea/
 
 .eslintrc.js
+
+coverage
