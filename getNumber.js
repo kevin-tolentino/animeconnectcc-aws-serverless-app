@@ -1,5 +1,6 @@
+/* eslint-disable */
 module.exports.getNumber = function (event, context, callback) {
-  const receivedCallerSubmittedNumber = event.Details.Parameters.callerSubmittedNumber;
+  const receivedCallerSubmittedNumber = event['Details']['Parameters']['callerSubmittedNumber'];
 
   const resultMap = {
     sentLambdaGetNumber: receivedCallerSubmittedNumber,
