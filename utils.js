@@ -13,11 +13,11 @@ const digitMap = new Map([
   ['0', ''],
 ]);
 
-// string the numbers from the phone number
+// string the numbers from the phone number - number will come back like "+1234567890"
 const returnNumberPossibilities = (numberFromCaller) => {
   const numToString = numberFromCaller.toString();
-  const targetDigitsOne = numToString.slice(6, 10);
-  const targetDigitsTwo = numToString.slice(7, 10);
+  const targetDigitsOne = numToString.slice(7, 11);
+  const targetDigitsTwo = numToString.slice(8, 11);
   return [targetDigitsOne, targetDigitsTwo];
 };
 
@@ -59,7 +59,6 @@ const getStringCombinations = (letterSetArray) => {
       combinationArray.push(letterSetArray[0][j] + otherCases[i]);
     }
   }
-  console.log('combinations', combinationArray);
   return combinationArray;
 };
 

@@ -26,7 +26,6 @@ const findMeSomeVanityNumbers = (stringPossibilitiesObject) => {
       possibilitiesArray.push(result[0].word);
     }
   }
-  console.log(possibilitiesArray);
   return possibilitiesArray;
 };
 
