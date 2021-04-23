@@ -1,9 +1,9 @@
+/* eslint-disable spaced-comment,max-len */
 /* eslint no-plusplus: ["error", { "allowForLoopAfterthoughts": true }] */
 
 const TrieSearch = require('trie-search/src/TrieSearch');
 const dictionaryArray = require('./wordsArray');
 
-// TODO: construct number hashmap
 const digitMap = new Map([
   ['1', ''],
   ['2', 'abc'],
@@ -16,23 +16,40 @@ const digitMap = new Map([
   ['9', 'wxyz'],
   ['0', ''],
 ]);
-// only return 4 letter, and 3 letter possibilities
+
+//string the numbers from the phone number
 const returnNumberPossibilities = (numberFromCaller) => {
   const number = 5623037446;
   const numToString = number.toString();
-  const targetDigits = numToString.slice(6, 10);
-  return targetDigits;
+  const targetDigitsOne = numToString.slice(6, 10);
+  const targetDigitsTwo = numToString.slice(7, 10);
+  return [targetDigitsOne, targetDigitsTwo];
 };
 
-const numberToLetterSets = (fourDigitString) => {
-  const letterSetsArray = [];
-  for (let x = 0; x < fourDigitString.length; x++) { // compares the digit to the key on the hashmap
-    const digit = fourDigitString[x];
+//change the numbers to letter sets according to the digits
+const numberToLetterSets = (digitStringArray) => {
+  const letterSetsObj = {};
+  const letterSetsArrayOne = [];
+  const letterSetsArrayTwo = [];
+
+  for (let i = 0; i < digitStringArray[0].length; i++) { // compares the digit to the key on the hashmap
+    const digit = digitStringArray[0][i];
     const letterSet = digitMap.get(digit);
-    letterSetsArray.push(letterSet);
+    letterSetsArrayOne.push(letterSet);
+    if (i === digitStringArray[0].length - 1) {
+      letterSetsObj.first = letterSetsArrayOne;
+    }
   }
-  console.log(letterSetsArray);
-  return letterSetsArray;
+  for (let i = 0; i < digitStringArray[1].length; i++) { // compares the digit to the key on the hashmap
+    const digit = digitStringArray[1][i];
+    const letterSet = digitMap.get(digit);
+    letterSetsArrayTwo.push(letterSet);
+    if (i === digitStringArray[1].length - 1) {
+      letterSetsObj.second = letterSetsArrayTwo;
+    }
+  }
+  console.log(letterSetsObj);
+  return letterSetsObj;
 };
 
 const getCombinations = (arr) => {
@@ -41,7 +58,6 @@ const getCombinations = (arr) => {
   }
   const ans = [];
 
-  // recur with the rest of the array.
   const otherCases = getCombinations(arr.slice(1));
   for (let i = 0; i < otherCases.length; i++) {
     for (let j = 0; j < arr[0].length; j++) {
@@ -81,6 +97,6 @@ const findMeSomeVanityNumbers = () => {
 
 // returnNumberPossibilities()
 
-numberToLetterSets('7546');
+numberToLetterSets(['7546', '456']);
 
 module.exports = findMeSomeVanityNumbers;
