@@ -1,7 +1,7 @@
 const findMeSomeVanityNumbers = require('./vanity.js');
 
 describe('findMeSomeVanityNumbers function', () => {
-  it('should give back an array', () => {
+  it('should give back a value in the array', () => {
     expect(Array.isArray(findMeSomeVanityNumbers())).toBeTruthy();
   });
 
