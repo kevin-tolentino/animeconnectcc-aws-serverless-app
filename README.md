@@ -9,10 +9,13 @@ Lambda functions are written in Node.js and utilize the Serverless Framework for
 view the recorded demonstration at https://youtube.com
 
 ###Screenshots of Implementation
+
 Amazon Connect Contact Flow:
+
 ![Amazon Connect Contact Flow:](https://github.com/kevin-tolentino/animeconnectcc-aws-serverless-app/blob/main/images/connect-contact-flow.png "Contact Flow")
 
 DynamoDB Table:
+
 ![DynamoDB Table:](https://github.com/kevin-tolentino/animeconnectcc-aws-serverless-app/blob/main/images/dynamodb-table.png "Dynamo DB Table")
 
 ## Technologies Used
