@@ -28,6 +28,7 @@ const findMeSomeVanityNumbers = (phoneNumber) => {
       const formattedVanity = formatToVanityNumber(phoneNumber, result[0].word, phoneNumber.slice(8, 12));
       possibilitiesArray.push(formattedVanity);
     }
+    if (possibilitiesArray.length === 5) break;
   }
 
   for (let i = 0; i < arrayTwo.length; i++) {
@@ -36,6 +37,7 @@ const findMeSomeVanityNumbers = (phoneNumber) => {
       const formattedVanity = formatToVanityNumber(phoneNumber, result[0].word, phoneNumber.slice(9, 12));
       possibilitiesArray.push(formattedVanity);
     }
+    if (possibilitiesArray.length === 5) break;
   }
   console.log('RETURN ARRAY', possibilitiesArray);
   return possibilitiesArray;
