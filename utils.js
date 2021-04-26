@@ -1,5 +1,8 @@
-const dictionaryArray = require('./wordsArray');
+// const dictionaryArray = require('./wordsArray');
+/* eslint-disable spaced-comment,max-len */
+/* eslint no-plusplus: ["error", { "allowForLoopAfterthoughts": true }] */
 
+//define a map that represents a number pad
 const digitMap = new Map([
   ['1', ''],
   ['2', 'abc'],
@@ -13,11 +16,11 @@ const digitMap = new Map([
   ['0', ''],
 ]);
 
-// string the numbers from the phone number
+// string the numbers from the phone number - number from AWS will come back as formatted string like "+1234567890"
 const returnNumberPossibilities = (numberFromCaller) => {
   const numToString = numberFromCaller.toString();
-  const targetDigitsOne = numToString.slice(6, 10);
-  const targetDigitsTwo = numToString.slice(7, 10);
+  const targetDigitsOne = numToString.slice(8, 12);
+  const targetDigitsTwo = numToString.slice(9, 12);
   return [targetDigitsOne, targetDigitsTwo];
 };
 
@@ -27,7 +30,7 @@ const numberToLetterSets = (digitStringArray) => {
   const letterSetsArrayOne = [];
   const letterSetsArrayTwo = [];
 
-  for (let i = 0; i < digitStringArray[0].length; i++) { // compares the digit to the key on the hashmap
+  for (let i = 0; i < digitStringArray[0].length; i++) { // compares the digit to the key on the hashmap of first array
     const digit = digitStringArray[0][i];
     const letterSet = digitMap.get(digit);
     letterSetsArrayOne.push(letterSet);
@@ -35,7 +38,7 @@ const numberToLetterSets = (digitStringArray) => {
       letterSetsObj.first = letterSetsArrayOne;
     }
   }
-  for (let i = 0; i < digitStringArray[1].length; i++) { // compares the digit to the key on the hashmap
+  for (let i = 0; i < digitStringArray[1].length; i++) { // compares the digit to the key on the hashmap of second array
     const digit = digitStringArray[1][i];
     const letterSet = digitMap.get(digit);
     letterSetsArrayTwo.push(letterSet);
@@ -59,13 +62,32 @@ const getStringCombinations = (letterSetArray) => {
       combinationArray.push(letterSetArray[0][j] + otherCases[i]);
     }
   }
-  console.log('combinations', combinationArray);
   return combinationArray;
+};
+
+// place the vanity word within the original phone number, replacing the range of numbers with the word
+const formatToVanityNumber = (phoneNumber, vanityWord, targetDigits) => {
+  const upperCasedWord = vanityWord.toUpperCase();
+  const formattedVanityWord = phoneNumber.replace(targetDigits, upperCasedWord);
+  const stringArray = formattedVanityWord.split('');
+  let formattedVanityNumber = '';
+  for (let i = 0; i < stringArray.length; i++) {
+    // eslint-disable-next-line no-restricted-globals
+    if (!isNaN(formattedVanityWord[i])) {
+      formattedVanityNumber += `${stringArray[i]} `;
+    } else {
+      // eslint-disable-next-line operator-assignment
+      formattedVanityNumber = formattedVanityNumber + stringArray[i];
+    }
+  }
+  return formattedVanityNumber;
+  //toUpperCase the returned value
 };
 
 module.exports = {
   digitMap,
-  returnNumberPossibilities,
-  numberToLetterSets,
+  formatToVanityNumber,
   getStringCombinations,
+  numberToLetterSets,
+  returnNumberPossibilities,
 };

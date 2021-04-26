@@ -30,20 +30,16 @@ provider:
   region: us-west-2
 
 # you can add statements to the Lambda function's IAM Role here
-#  iamRoleStatements:
-#    - Effect: "Allow"
-#      Action:
-#        - "s3:ListBucket"
-#      Resource: { "Fn::Join" : ["", ["arn:aws:s3:::", { "Ref" : "ServerlessDeploymentBucket" } ] ]  }
-#    - Effect: "Allow"
-#      Action:
-#        - "s3:PutObject"
-#      Resource:
-#        Fn::Join:
-#          - ""
-#          - - "arn:aws:s3:::"
-#            - "Ref" : "ServerlessDeploymentBucket"
-#            - "/*"
+  environment:
+    CANDIDATE_TABLE: ${self:service}-${opt:stage, self:provider.stage}
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:Query
+        - dynamodb:Scan
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+      Resource: "*"
 
 # you can define service wide environment variables here
 #  environment:
@@ -58,8 +54,24 @@ provider:
 #    - include-me-dir/**
 
 functions:
+  getAnime:
+    handler: getAnimeRec.getAnime
+    memorySize: 128
+    description: Fetch anime reccomendation based on selected vanity word.
+
   getNumber:
     handler: getNumber.getNumber
+    memorySize: 128
+    description: Get inbound caller number and 5 vanity possibilities to DynamoDB table.
+
+  postNumber:
+    handler: postNumber.submit
+    memorySize: 128
+    description: Post inbound caller number and 5 vanity possibilities to DynamoDB table.
+    events:
+      - http:
+          path: postVanity
+          method: post
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
 #    Check the event documentation for details
@@ -101,13 +113,21 @@ functions:
 #      variable2: value2
 
 # you can add CloudFormation resource templates here
-#resources:
-#  Resources:
-#    NewResource:
-#      Type: AWS::S3::Bucket
-#      Properties:
-#        BucketName: my-new-bucket
-#  Outputs:
-#     NewOutput:
-#       Description: "Description for the output"
-#       Value: "Some output value"
+resources:
+  Resources:
+    CallerDynamoDbTable:
+      Type: 'AWS::DynamoDB::Table'
+      DeletionPolicy: Retain
+      Properties:
+        AttributeDefinitions:
+          -
+            AttributeName: "number"
+            AttributeType: "S"
+        KeySchema:
+          -
+            AttributeName: "number"
+            KeyType: "HASH"
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
+        TableName: ${self:provider.environment.CANDIDATE_TABLE}
