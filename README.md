@@ -5,11 +5,11 @@ The goal of this project is to implement AWS Lambda in such a way that a caller'
 
 Lambda functions are written in Node.js and utilize the Serverless Framework for deployment to and AWS instance
 
-## 👀Recorded Demo
+## 👀 Recorded Demo
 View the recorded demonstration at: https://youtu.be/vfC_p3FxmEM
 [![VF App Demo](https://github.com/kevin-tolentino/animeconnectcc-aws-serverless-app/blob/main/images/app-demo-thumbnail.png)](https://youtu.be/vfC_p3FxmEM)
 
-### Screenshots of Implementation
+### ➡️ Screenshots of Implementation
 
 Amazon Connect Contact Flow:
 
@@ -19,7 +19,7 @@ DynamoDB Table:
 
 ![DynamoDB Table:](https://github.com/kevin-tolentino/animeconnectcc-aws-serverless-app/blob/main/images/dynamodb-table.png "Dynamo DB Table")
 
-## Technologies Used
+## 💻 Technologies Used
 The project utilizes following technologies:
 
 - AWS
@@ -32,7 +32,7 @@ The project utilizes following technologies:
 
 ## Implementation
 
-### Solution
+### 💡 Solution
 `animeconnectcc-aws-serverless-app` uses a search algorithm utilizing the [trie](https://en.wikipedia.org/wiki/Trie) data structure to iterate quickly and efficiently through a dictionary of common English words. 
 
 **PLEASE NOTE: "Best" was defined as attempt to find a word within the 4 and 3 last digits within a caller's number. This was to ensure that a vanity number similar to the real world may be obtained, like 562-303-SHIN.**
@@ -53,7 +53,7 @@ This coding project definitely was a challenge for me. As I have not worked with
 This was solved by reading the AWS documentation, Serverless documentation, and going through an Amazon Connect tutorial on LinkedIn learning. (Note - All my collected resources are under a heading at the bottom). Learning how to configure a serverless app was time-consuming but valuable for the future.
 
 
-### Shortcuts to avoid in production
+### 🛣️ Shortcuts to avoid in production
 - Testing 
   - Sacrificing coverage for the sake of speed in app building is a shortcut that I took for this app, which is a bad practice. My testing for this app was not as robust as I would have wanted it to be. Only simpler unit testing for the search algorithm and its helper functions were implemented.
 - HTTP Responses
@@ -61,7 +61,7 @@ This was solved by reading the AWS documentation, Serverless documentation, and 
 - Error handling
     - My error handling within the search algorithm was not as robust as can be. Edge cases for digits 0 and 1 were not implemented due to time constrains
 
-### What would I have done with more time
+### ❓ What would I have done with more time
 Many ideas for implementation come to mind for this question. Here are some listed by category:
 - Algorithm
   - Enhance the trie search algorithm to account for numeric 1 and 0 digits as since they would not map to corresponding letters
@@ -70,14 +70,14 @@ Many ideas for implementation come to mind for this question. Here are some list
 - AWS
   - Utilize Amazon Lex in order for voice input for smoother and personal customer experience.
   - Utilize SSML tags in Amazon Connect Contact Flow to make the call experience more personable 
-  - I would also create an alternate flow that would welcome the user back if she/he visited called the number again
-  - Develope specific contrained IAM policies per function so that they do not have access to read and write if not needed.
+  - Create an alternate flow that would welcome the user back if she/he visited called the number again
+  - Develop specific contrained IAM policies per function so that they do not have access to read and write if not needed.
 - UI (A fun one 😄)
   - I would create a complementary UI that would complement this call center application to show an image of the recommended anime in a web browser.
 - Misc
   - Conduct directory cleaning and put grouped filed in similar directories (e.g. service directory) 
 
-## Development
+## 🖥️ Development
 ### System Requirements
 - NPM
 - Node.js
@@ -98,7 +98,7 @@ Many ideas for implementation come to mind for this question. Here are some list
         serverless deploy
 
 
-## Collected Resources
+## 📓 Collected Resources
 - Amazon Connect Call Center Tutorial - https://www.linkedin.com/learning/learning-amazon-connect-create-and-manage-a-contact-center
 - Amazon DynamoDB API Documentation - https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/Welcome.html
 - Anime API - https://jikan.moe/
