@@ -81,7 +81,6 @@ const formatToVanityNumber = (phoneNumber, vanityWord, targetDigits) => {
     }
   }
   return formattedVanityNumber;
-  //toUpperCase the returned value
 };
 
 module.exports = {
