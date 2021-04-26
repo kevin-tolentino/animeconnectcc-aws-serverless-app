@@ -6,7 +6,7 @@ The goal of this project is to implement AWS Lambda in such a way that a caller'
 Lambda functions are written in Node.js and utilize the Serverless Framework for deployment to and AWS instance
 
 ## 👀Recorded Demo
-View the recorded demonstration at https://youtu.be/vfC_p3FxmEM
+View the recorded demonstration at: https://youtu.be/vfC_p3FxmEM
 [![VF App Demo](https://github.com/kevin-tolentino/animeconnectcc-aws-serverless-app/blob/main/images/app-demo-thumbnail.png)](https://youtu.be/vfC_p3FxmEM)
 
 ### Screenshots of Implementation
@@ -33,7 +33,7 @@ The project utilizes following technologies:
 ## Implementation
 
 ### Solution
-`animeconnectcc-aws-serverless-app` uses a search algorithm utilizing the trie data structure to iterate quickly and efficiently through a dictionary of common English words. 
+`animeconnectcc-aws-serverless-app` uses a search algorithm utilizing the [trie](https://en.wikipedia.org/wiki/Trie) data structure to iterate quickly and efficiently through a dictionary of common English words. 
 
 **PLEASE NOTE: "Best" was defined as attempt to find a word within the 4 and 3 last digits within a caller's number. This was to ensure that a vanity number similar to the real world may be obtained, like 562-303-SHIN.**
 
@@ -104,7 +104,7 @@ Many ideas for implementation come to mind for this question. Here are some list
 - Anime API - https://jikan.moe/
 - Invoking AWS Lamda Functions in Amazon Connect - https://docs.aws.amazon.com/connect/latest/adminguide/connect-lambda-functions.html
 - NodeJS with DynamoDB - https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GettingStarted.NodeJs.html
-- Trie data structure package - https://github.com/joshjung/trie-search
+- Trie Data Structure Package - https://github.com/joshjung/trie-search
 
 ## Conclusion
 I had much fun with this application through learning and tinkering with the various AWS services available to me! It was a challenge I wanted to face head on, and learn how to do the project well. Thank you for letting me do it! 
