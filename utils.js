@@ -1,4 +1,6 @@
-const dictionaryArray = require('./wordsArray');
+// const dictionaryArray = require('./wordsArray');
+/* eslint-disable spaced-comment,max-len */
+/* eslint no-plusplus: ["error", { "allowForLoopAfterthoughts": true }] */
 
 const digitMap = new Map([
   ['1', ''],
@@ -13,7 +15,7 @@ const digitMap = new Map([
   ['0', ''],
 ]);
 
-// string the numbers from the phone number - number will come back like "+1234567890"
+// string the numbers from the phone number - number from AWS will come back like "+1234567890"
 const returnNumberPossibilities = (numberFromCaller) => {
   const numToString = numberFromCaller.toString();
   const targetDigitsOne = numToString.slice(7, 11);

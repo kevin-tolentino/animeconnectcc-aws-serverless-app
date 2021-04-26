@@ -60,6 +60,14 @@ provider:
 functions:
   getNumber:
     handler: getNumber.getNumber
+  candidateSubmission:
+    handler: postNumber.submit
+    memorySize: 128
+    description: Submit inbound caller number and 5 vanity possibilities to DynamoDB table.
+    events:
+      - http:
+          path: postVanity
+          method: post
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
 #    Check the event documentation for details

@@ -1,17 +1,21 @@
 /* eslint-disable spaced-comment,max-len */
 /* eslint no-plusplus: ["error", { "allowForLoopAfterthoughts": true }] */
-const AWS = require('aws-sdk');
+//const AWS = require('aws-sdk');
 const TrieSearch = require('trie-search/src/TrieSearch');
 const dictionaryArray = require('./wordsArray');
-const { getStringCombinations } = require('./utils');
+const { getStringCombinations, returnNumberPossibilities, numberToLetterSets } = require('./utils');
 
-const findMeSomeVanityNumbers = (stringPossibilitiesObject) => {
+const findMeSomeVanityNumbers = (phoneNumber) => {
   const ts = new TrieSearch('word');
   ts.addAll(dictionaryArray.wordsArray);
 
+  const numberPossibilities = returnNumberPossibilities(phoneNumber);
+
+  const letterSets = numberToLetterSets(numberPossibilities);
+
   const possibilitiesArray = [];
-  const arrayOne = getStringCombinations(stringPossibilitiesObject.first);
-  const arrayTwo = getStringCombinations(stringPossibilitiesObject.second);
+  const arrayOne = getStringCombinations(letterSets.first);
+  const arrayTwo = getStringCombinations(letterSets.second);
 
   for (let i = 0; i < arrayOne.length; i++) {
     const result = ts.get(arrayOne[i], null, 1);
@@ -26,12 +30,10 @@ const findMeSomeVanityNumbers = (stringPossibilitiesObject) => {
       possibilitiesArray.push(result[0].word);
     }
   }
+  //console.log(possibilitiesArray);
   return possibilitiesArray;
 };
 
-findMeSomeVanityNumbers({
-  first: ['pqrs', 'ghi', 'ghi', 'mno'],
-  second: ['ghi', 'jkl', 'mno'],
-});
+findMeSomeVanityNumbers('+1234567890');
 
 module.exports = findMeSomeVanityNumbers;
