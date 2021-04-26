@@ -1,12 +1,13 @@
 # animeconnectcc-aws-serverless-app
-The AnimeConnectCC Serverless Application is a Serverless deployment utlizing AWS Lamda Functions to serve an anime title reccommendation app through a contact flow in AWS Connect. 
+The AnimeConnectCC Serverless Application is a Serverless deployment utilizing AWS Lamda Functions to serve an anime title recommendation app through a contact flow in AWS Connect. 
 
 The goal of this project is to implement AWS Lambda in such a way that a caller's phone number is converted into a vanity number, storing the 5 "best" vanity numbers, and the caller's phone number in the process.
 
 Lambda functions are written in Node.js and utilize the Serverless Framework for deployment to and AWS instance
 
 ## 👀Recorded Demo
-view the recorded demonstration at https://youtube.com
+View the recorded demonstration at https://youtu.be/vfC_p3FxmEM
+[![VF App Demo](https://github.com/kevin-tolentino/animeconnectcc-aws-serverless-app/blob/main/images/connect-contact-flow.png)](https://youtu.be/vfC_p3FxmEM)
 
 ### Screenshots of Implementation
 
@@ -73,7 +74,8 @@ Many ideas for implementation come to mind for this question. Here are some list
   - Develope specific contrained IAM policies per function so that they do not have access to read and write if not needed.
 - UI (A fun one 😄)
   - I would create a complementary UI that would complement this call center application to show an image of the recommended anime in a web browser.
-
+- Misc
+  - Conduct directory cleaning and put grouped filed in similar directories (e.g. service directory) 
 
 ##Development
 ### System Requirements
@@ -95,9 +97,6 @@ Many ideas for implementation come to mind for this question. Here are some list
 
         serverless deploy
 
-
-
-##👀Recorded Demo
 
 ## Collected Resources
 - Amazon Connect Call Center Tutorial - https://www.linkedin.com/learning/learning-amazon-connect-create-and-manage-a-contact-center
