@@ -10,10 +10,10 @@ view the recorded demonstration at https://youtube.com
 
 ###Screenshots of Implementation
 Amazon Connect Contact Flow:
-![Amazon Connect Contact Flow:](https://github.com/kevin-tolentino/blob/master/images/connect-contact-flow.png "Contact Flow")
+![Amazon Connect Contact Flow:](https://github.com/kevin-tolentino/animeconnectcc-aws-serverless-app/blob/main/images/connect-contact-flow.png "Contact Flow")
 
 DynamoDB Table:
-![DynamoDB Table:](https://github.com/kevin-tolentino/blob/master/images/dynamodb-table.png "Dynamo DB Table")
+![DynamoDB Table:](https://github.com/kevin-tolentino/animeconnectcc-aws-serverless-app/blob/main/images/dynamodb-table.png "Dynamo DB Table")
 
 ## Technologies Used
 The project utilizes following technologies:
@@ -35,7 +35,7 @@ The project utilizes following technologies:
 
 This function is defined in [`vanity.js`](https://github.com/kevin-tolentino/animeconnectcc-aws-serverless-app/blob/3e93ea84a1ce421910ad70dd0a9a438cfc4ea281/vanity.js#L10) and all of it's helper functions are defined in [`utils.js`](https://github.com/kevin-tolentino/animeconnectcc-aws-serverless-app/blob/3e93ea84a1ce421910ad70dd0a9a438cfc4ea281/utils.js). 
 
-AWS Lamda functions are then utilized during specific events in the contact flow to post data to DynamoDB and retrieve data from the respective database and external API. View the Lamda functions here at [`serverless.yml`](https://github.com/kevin-tolentino/animeconnectcc-aws-serverless-app/blob/3e93ea84a1ce421910ad70dd0a9a438cfc4ea281/serverless.yml#L56).
+AWS Lamda functions are then utilized during specific events in the contact flow to post data to DynamoDB and retrieve data from the respective database and external API. View the Lamda functions here at [`serverless.yml`](https://github.com/kevin-tolentino/animeconnectcc-aws-serverless-app/blob/4dd4e1b7a7aa1d5c7562054f29874c76875fd804/serverless.yml#L24).
 
 As a bit of fun, in addition to the caller being read their vanity numbers, the caller gets a chance to be read an anime title recommendation to view at a later time.
 
