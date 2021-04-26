@@ -77,7 +77,7 @@ Many ideas for implementation come to mind for this question. Here are some list
 - Misc
   - Conduct directory cleaning and put grouped filed in similar directories (e.g. service directory) 
 
-##Development
+## Development
 ### System Requirements
 - NPM
 - Node.js
