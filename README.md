@@ -5,10 +5,10 @@ The goal of this project is to implement AWS Lambda in such a way that a caller'
 
 Lambda functions are written in Node.js and utilize the Serverless Framework for deployment to and AWS instance
 
-##👀Recorded Demo
+## 👀Recorded Demo
 view the recorded demonstration at https://youtube.com
 
-###Screenshots of Implementation
+### Screenshots of Implementation
 
 Amazon Connect Contact Flow:
 
