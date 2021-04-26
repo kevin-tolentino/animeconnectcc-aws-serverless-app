@@ -2,6 +2,7 @@
 /* eslint-disable spaced-comment,max-len */
 /* eslint no-plusplus: ["error", { "allowForLoopAfterthoughts": true }] */
 
+//define a map that represents a number pad
 const digitMap = new Map([
   ['1', ''],
   ['2', 'abc'],

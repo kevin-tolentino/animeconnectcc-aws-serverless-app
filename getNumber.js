@@ -19,12 +19,12 @@ module.exports.getNumber = function (event, context, callback) {
       console.error('Unable to read item. Error JSON:', JSON.stringify(err, null, 2));
     } else {
       console.log('DATA GET TEST', data.Item);
-      console.log('DATA specifics', data.Item.info.two, typeof data.Item.info.two);
-      const returnResponse = {
-        statusCode: 200,
-        body: JSON.stringify(data.Item),
+      const resultMap = {
+        first: data.Item.first,
+        second: data.Item.second,
+        third: data.Item.third,
       };
-      callback(null, returnResponse);
+      callback(null, resultMap);
     }
   });
 
