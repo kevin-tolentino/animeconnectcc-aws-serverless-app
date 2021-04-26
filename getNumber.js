@@ -26,10 +26,4 @@ module.exports.getNumber = (event, context, callback) => {
       callback(null, resultMap);
     }
   });
-
-  // const resultMap = {
-  //   sentLambdaGetNumber: receivedCallerSubmittedNumber,
-  // };
-
-  // callback(null, null);
 };
