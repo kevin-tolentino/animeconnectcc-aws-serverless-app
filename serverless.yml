@@ -54,6 +54,11 @@ provider:
 #    - include-me-dir/**
 
 functions:
+  getAnime:
+    handler: getAnimeRec.getAnime
+    memorySize: 128
+    description: Fetch anime reccomendation based on selected vanity word.
+
   getNumber:
     handler: getNumber.getNumber
     memorySize: 128

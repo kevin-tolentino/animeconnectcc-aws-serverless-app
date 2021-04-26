@@ -36,7 +36,6 @@ const findMeSomeVanityNumbers = (phoneNumber) => {
     }
     if (possibilitiesArray.length === 5) break;
   }
-  console.log('RETURN ARRAY', possibilitiesArray);
   return possibilitiesArray;
 };
 

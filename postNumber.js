@@ -22,9 +22,6 @@ module.exports.submit = (event, context, callback) => {
   const resultMap = {
     sentLambdaGetNumber: receivedCallerSubmittedNumber,
   };
-  // console.log('test vanity', testVanity)
-  console.log('receivedCallerSubmittedNumber', receivedCallerSubmittedNumber);
-  // console.log('resultMap', resultMap)
 
   const params = {
     TableName: table,
