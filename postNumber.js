@@ -1,7 +1,7 @@
 const AWS = require('aws-sdk');
 
 const dynamoDb = new AWS.DynamoDB.DocumentClient();
-//const findMeSomeVanityNumbers = require('./vanity.js');
+// const findMeSomeVanityNumbers = require('./vanity.js');
 
 // eslint-disable-next-line no-unused-vars
 module.exports.submit = (event, context, callback) => {

@@ -1,9 +1,11 @@
 /* eslint-disable spaced-comment,max-len */
 /* eslint no-plusplus: ["error", { "allowForLoopAfterthoughts": true }] */
-//const AWS = require('aws-sdk');
+require('dotenv').config();
 const TrieSearch = require('trie-search/src/TrieSearch');
 const dictionaryArray = require('./wordsArray');
-const { getStringCombinations, returnNumberPossibilities, numberToLetterSets } = require('./utils');
+const {
+  formatToVanityNumber, getStringCombinations, returnNumberPossibilities, numberToLetterSets,
+} = require('./utils');
 
 const findMeSomeVanityNumbers = (phoneNumber) => {
   const ts = new TrieSearch('word');
@@ -23,20 +25,22 @@ const findMeSomeVanityNumbers = (phoneNumber) => {
   for (let i = 0; i < arrayOne.length; i++) {
     const result = ts.get(arrayOne[i], null, 1);
     if (result.length !== 0) {
-      possibilitiesArray.push(result[0].word);
+      const formattedVanity = formatToVanityNumber(phoneNumber, result[0].word, phoneNumber.slice(8, 12));
+      possibilitiesArray.push(formattedVanity);
     }
   }
 
   for (let i = 0; i < arrayTwo.length; i++) {
     const result = ts.get(arrayTwo[i], null, 1);
     if (result.length !== 0) {
-      possibilitiesArray.push(result[0].word);
+      const formattedVanity = formatToVanityNumber(phoneNumber, result[0].word, phoneNumber.slice(9, 12));
+      possibilitiesArray.push(formattedVanity);
     }
   }
-  console.log(possibilitiesArray);
+  console.log('RETURN ARRAY', possibilitiesArray);
   return possibilitiesArray;
 };
 
-findMeSomeVanityNumbers('+15623037456');
+findMeSomeVanityNumbers(process.env.PHONENUMBER);
 
 module.exports = findMeSomeVanityNumbers;

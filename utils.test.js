@@ -1,5 +1,5 @@
 const {
-  returnNumberPossibilities, numberToLetterSets, getStringCombinations,
+  formatToVanityNumber, returnNumberPossibilities, numberToLetterSets, getStringCombinations,
 } = require('./utils.js');
 
 describe('returnNumberPossibilities function', () => {
@@ -26,7 +26,13 @@ describe('numberToLetterSets function', () => {
 });
 
 describe('getStringCombinations function', () => {
-  it('return an array', () => {
+  it('should return an array', () => {
     expect(Array.isArray(getStringCombinations(['abc', 'def', 'ghi']))).toBeTruthy();
+  });
+});
+
+describe('formatToVanityNumber function', () => {
+  it('should return a formatted vanity number string', () => {
+    expect(formatToVanityNumber('+15623037446', 'sign', '7446')).toStrictEqual('+1 5 6 2 3 0 3 SIGN');
   });
 });
