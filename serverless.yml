@@ -32,7 +32,6 @@ provider:
 # you can add statements to the Lambda function's IAM Role here
   environment:
     CANDIDATE_TABLE: ${self:service}-${opt:stage, self:provider.stage}
-    CANDIDATE_EMAIL_TABLE: "candidate-email-${opt:stage, self:provider.stage}"
   iamRoleStatements:
     - Effect: Allow
       Action:
@@ -57,6 +56,9 @@ provider:
 functions:
   getNumber:
     handler: getNumber.getNumber
+    memorySize: 128
+    description: Get inbound caller number and 5 vanity possibilities to DynamoDB table.
+
   postNumber:
     handler: postNumber.submit
     memorySize: 128
