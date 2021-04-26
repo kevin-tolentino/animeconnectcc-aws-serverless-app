@@ -45,7 +45,7 @@ As a bit of fun, in addition to the caller being read their vanity numbers, the 
 
 
 ### Struggles Faced
-Notable struggles faced were: being patient in learning about the AWS ecosystem more in depth and brainstorming how best to optimize the search algorithm for the vanity words in the midst week's span of time. 
+Notable struggles faced were: being patient in learning about the AWS ecosystem more in depth and brainstorming how best to optimize the search algorithm for the vanity words in a week's span of time. 
 
 ### Problems Overcome
 This coding project definitely was a challenge for me. As I have not worked with Amazon Connect, Lamda, and DynamoDB before, there was a steep learning curve that needed to be dealt with. 
