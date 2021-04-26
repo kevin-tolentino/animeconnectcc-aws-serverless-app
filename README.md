@@ -7,7 +7,7 @@ Lambda functions are written in Node.js and utilize the Serverless Framework for
 
 ## 👀Recorded Demo
 View the recorded demonstration at https://youtu.be/vfC_p3FxmEM
-[![VF App Demo](https://github.com/kevin-tolentino/animeconnectcc-aws-serverless-app/blob/main/images/connect-contact-flow.png)](https://youtu.be/vfC_p3FxmEM)
+[![VF App Demo](https://github.com/kevin-tolentino/animeconnectcc-aws-serverless-app/blob/main/images/app-demo-thumbnail.png)](https://youtu.be/vfC_p3FxmEM)
 
 ### Screenshots of Implementation
 
