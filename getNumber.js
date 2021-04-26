@@ -7,7 +7,6 @@ module.exports.getNumber = function (event, context, callback) {
   //   second: ['ghi', 'jkl', 'mno'],
   // });
   let receivedCallerSubmittedNumber = event['Details']['ContactData']['CustomerEndpoint']['Address']
-  receivedCallerSubmittedNumber = receivedCallerSubmittedNumber.split('').join(' ')
 
   const resultMap = {
     sentLambdaGetNumber: receivedCallerSubmittedNumber,

@@ -17,6 +17,9 @@ const findMeSomeVanityNumbers = (phoneNumber) => {
   const arrayOne = getStringCombinations(letterSets.first);
   const arrayTwo = getStringCombinations(letterSets.second);
 
+  console.log(arrayOne, 'arrayone');
+  console.log(arrayTwo, 'arraytwo');
+
   for (let i = 0; i < arrayOne.length; i++) {
     const result = ts.get(arrayOne[i], null, 1);
     if (result.length !== 0) {
@@ -30,10 +33,10 @@ const findMeSomeVanityNumbers = (phoneNumber) => {
       possibilitiesArray.push(result[0].word);
     }
   }
-  //console.log(possibilitiesArray);
+  console.log(possibilitiesArray);
   return possibilitiesArray;
 };
 
-findMeSomeVanityNumbers('+1234567890');
+findMeSomeVanityNumbers('+15623037456');
 
 module.exports = findMeSomeVanityNumbers;
