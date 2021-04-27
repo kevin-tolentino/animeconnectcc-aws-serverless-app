@@ -104,7 +104,9 @@ Many ideas for implementation come to mind for this question. Here are some list
 - Anime API - https://jikan.moe/
 - Invoking AWS Lamda Functions in Amazon Connect - https://docs.aws.amazon.com/connect/latest/adminguide/connect-lambda-functions.html
 - NodeJS with DynamoDB - https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GettingStarted.NodeJs.html
+- Serverless REST API with Node, Lamda, and DynamoDB example - https://www.serverless.com/blog/node-rest-api-with-serverless-lambda-and-dynamodb/
 - Trie Data Structure Package - https://github.com/joshjung/trie-search
+- Vanity Number Python Module - https://github.com/sreenivasanac/vanitynumber
 
 ## Conclusion
 I had much fun with this application through learning and tinkering with the various AWS services available to me! It was a challenge I wanted to face head on, and learn how to do the project well. Thank you for letting me do it! 
